@@ -1,4 +1,4 @@
-# Portfolio Template
+# Portfolio Template 
 
 A statically generated portfolio template you can fork to publish your own projects on GitHub Pages — no design work, no build configuration, no code changes required to add new content. Built with Astro and Tailwind CSS.
 
