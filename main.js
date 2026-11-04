@@ -78,6 +78,11 @@
     check();
   }
 
+  // Card videos: no autoplay for people who ask for less motion.
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.card video').forEach(v => { v.removeAttribute('autoplay'); v.pause(); });
+  }
+
   // Hands-on strip: arrows move one project at a time.
   const strip = document.querySelector('.ho-track');
   const [back, fwd] = document.querySelectorAll('.ho-arrows button');

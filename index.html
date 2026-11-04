@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="fonts-panchang.css?v=2">
-  <link rel="stylesheet" href="styles.css?v=87">
+  <link rel="stylesheet" href="styles.css?v=93">
   <script>
     document.documentElement.classList.add('js');
     // Preview of ground colours: the page opens in white; the corner circle steps through the others.
@@ -79,12 +79,14 @@
 
     <div class="case-grid">
       <a class="card dark overlay deep" href="#checkout" data-reveal>
-        <div class="shot bleed"><img src="img/checkout-cover.jpg?v=2" width="1254" height="1254" alt="Three checkout screens: choosing a payment method, a QR code payment open, and the payment details" loading="lazy"></div>
+        <div class="shot bleed framed"><video src="img/checkout-animado.mp4" poster="img/checkout-animado-poster.jpg" width="1440" height="968" autoplay muted loop playsinline preload="metadata" aria-label="Checkout animation: choosing a payment method and paying by card"></video></div>
         <div class="card-text">
           <h3>Checkout</h3>
           <p class="card-head">Simplifying payments across Latin America</p>
-          <p>Shaping a consistent payment experience across countries, payment methods, and partner integrations.</p>
-          <span class="card-link"><span class="u">Read the case</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+          <div class="card-more"><div>
+              <p>Shaping a consistent payment experience across countries, payment methods, and partner integrations.</p>
+              <span class="card-link"><span class="u">Read the case</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+          </div></div>
         </div>
       </a>
 
@@ -93,8 +95,10 @@
         <div class="card-text">
           <h3>Merchant Portal</h3>
           <p class="card-head">Making complex financial operations easier to navigate</p>
-          <p>Guiding the design of a portal that helps merchants manage payments, balances, and daily operations.</p>
-          <span class="card-link"><span class="u">Read the case</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+          <div class="card-more"><div>
+              <p>Guiding the design of a portal that helps merchants manage payments, balances, and daily operations.</p>
+              <span class="card-link"><span class="u">Read the case</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+          </div></div>
         </div>
       </a>
 
@@ -103,8 +107,10 @@
         <div class="card-text">
           <h3>Kuady</h3>
           <p class="card-head">Building a wallet experience and growing the design team</p>
-          <p>From designing the first screens to hiring and leading a team of three designers and a researcher.</p>
-          <span class="card-link"><span class="u">Read the case</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+          <div class="card-more"><div>
+              <p>From designing the first screens to hiring and leading a team of three designers and a researcher.</p>
+              <span class="card-link"><span class="u">Read the case</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+          </div></div>
         </div>
       </a>
 
@@ -112,8 +118,10 @@
         <div class="shot bleed"><img src="img/teams-cover.jpg" width="1000" height="1000" alt="Three grey circles side by side on black" loading="lazy"></div>
         <div class="card-text">
           <h3>Building design teams</h3>
-          <p>Wherever I've worked, I've built the design team. How I hire, grow people and earn design its place.</p>
-          <span class="card-link"><span class="u">Read the case</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+          <p class="card-head">Wherever I've worked, I've built the design team. How I hire, grow people and earn design its place.</p>
+          <div class="card-more"><div>
+              <span class="card-link"><span class="u">Read the case</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+          </div></div>
         </div>
       </a>
     </div>
@@ -191,6 +199,6 @@
 
 <!-- Preview control: shows the next ground colour; click to switch to it -->
 <button class="next-ground" type="button" data-ui aria-label="Change the page colour"><span class="coin" aria-hidden="true"></span></button>
-<script src="main.js?v=12"></script>
+<script src="main.js?v=13"></script>
 </body>
 </html>
