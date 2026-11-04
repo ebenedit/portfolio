@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ester Benedit, Product Design Leader</title>
+  <meta name="description" content="Ester Benedit is a Product Design Leader in Barcelona. She brings clarity to complexity and helps teams design better products.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="fonts-panchang.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=87">
+  <script>
+    document.documentElement.classList.add('js');
+    // Preview of ground colours: the page opens in white; the corner circle steps through the others.
+    window.GROUNDS = ['#ffffff', '#ffe500', '#7cf2c4', '#8ed2ff', '#c7b8ff', '#ff9ec4'];
+    window.setGround = (c) => document.documentElement.style.setProperty('--bg', c);
+  </script>
+</head>
+<body>
+
+<header class="bar wrap">
+  <a class="bar-name" href="#top" aria-hidden="true" tabindex="-1">Ester Benedit</a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+    <svg class="i-open" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    <svg class="i-close" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+  </button>
+  <nav id="menu" aria-label="Main">
+    <ul>
+      <li><a href="#how-i-work">How I work</a></li>
+      <li><a href="#case-studies">Case studies</a></li>
+      <li><a href="#hands-on">Hands-on</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="cv/ester-benedit-cv2026.pdf" target="_blank" rel="noopener">CV</a></li>
+    </ul>
+  </nav>
+  <span class="divider" aria-hidden="true"></span>
+  <a class="pill outline" href="mailto:ebenedit@gmail.com">Get in touch</a>
+</header>
+
+<section class="hero wrap" id="top" aria-labelledby="name">
+  <div class="intro">
+    <div class="intro-text">
+      <p class="role">Product Design Leader</p>
+      <p class="lead">I bring clarity to complexity and help teams design better products.</p>
+    </div>
+    <figure class="avatar">
+      <img src="img/ester-bw.jpg?v=2" width="640" height="640" alt="Ester Benedit, black and white portrait">
+    </figure>
+  </div>
+  <h1 class="name" id="name"><span class="line">Ester</span> <span class="line">Benedit</span></h1>
+</section>
+
+<main>
+
+  <section class="wrap" id="how-i-work" aria-labelledby="how-title">
+    <div class="panel dark skills">
+      <h2 id="how-title" data-reveal>How I work</h2>
+      <ul>
+        <li data-reveal><h3>Solving complex problems</h3><p>I bring structure to ambiguity and turn complex challenges into a clear direction for the team.</p></li>
+        <li data-reveal><h3>Connecting product and business strategy</h3><p>I connect user needs with business priorities to guide product decisions and focus effort where it matters most.</p></li>
+        <li data-reveal><h3>Raising visual quality through systems</h3><p>I raise the visual quality of products and bring consistency through shared patterns, design systems and clear standards.</p></li>
+        <li data-reveal><h3>Driving impact through evidence</h3><p>I use research, behavioural insights and data to guide decisions, evaluate outcomes and refine the experience.</p></li>
+        <li data-reveal><h3>Growing and aligning teams</h3><p>I help designers grow in craft, confidence and autonomy, and build alignment with Product, Engineering and the business.</p></li>
+        <li data-reveal><h3>Designing with AI</h3><p>I use AI to analyse problems, prototype on our design system and automate research, with human judgment on every output.</p></li>
+      </ul>
+      <a class="pill outline" href="mailto:ebenedit@gmail.com" data-reveal>Get in touch</a>
+    </div>
+  </section>
+
+  <section class="wrap cases" id="case-studies" aria-labelledby="cases-title">
+    <div class="cases-intro">
+      <h2 id="cases-title" data-reveal>Case studies</h2>
+      <p data-reveal>These are my three latest projects, from rethinking how people pay to designing a digital wallet from scratch. I share the decisions we made along the way, what we learned from the people using our products, and one of my favourite parts of the work: building the teams behind them.</p>
+    </div>
+
+    <div class="case-grid">
+      <a class="card dark overlay deep" href="#checkout" data-reveal>
+        <div class="shot bleed"><img src="img/checkout-cover.jpg?v=2" width="1254" height="1254" alt="Three checkout screens: choosing a payment method, a QR code payment open, and the payment details" loading="lazy"></div>
+        <div class="card-text">
+          <h3>Checkout</h3>
+          <p class="card-head">Simplifying payments across Latin America</p>
+          <p>Shaping a consistent payment experience across countries, payment methods, and partner integrations.</p>
+          <span class="card-link"><span class="u">Read the case</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+        </div>
+      </a>
+
+      <a class="card dark overlay deep" href="#merchant-portal" data-reveal>
+        <div class="shot bleed"><img src="img/portal-cover.jpg" width="1000" height="1000" alt="Merchant Portal dashboard with balances, payins and payouts, settlements, claims and recent transactions" loading="lazy"></div>
+        <div class="card-text">
+          <h3>Merchant Portal</h3>
+          <p class="card-head">Making complex financial operations easier to navigate</p>
+          <p>Guiding the design of a portal that helps merchants manage payments, balances, and daily operations.</p>
+          <span class="card-link"><span class="u">Read the case</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+        </div>
+      </a>
+
+      <a class="card dark overlay" href="#kuady" data-reveal>
+        <div class="shot bleed"><img src="img/kuady-home2.jpg" width="1110" height="1110" alt="Kuady app showing the virtual card and recent activity, next to the physical Kuady card" loading="lazy"></div>
+        <div class="card-text">
+          <h3>Kuady</h3>
+          <p class="card-head">Building a wallet experience and growing the design team</p>
+          <p>From designing the first screens to hiring and leading a team of three designers and a researcher.</p>
+          <span class="card-link"><span class="u">Read the case</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+        </div>
+      </a>
+
+      <a class="card dark overlay" href="#building-design-teams" data-reveal>
+        <div class="shot bleed"><img src="img/teams-cover.jpg" width="1000" height="1000" alt="Three grey circles side by side on black" loading="lazy"></div>
+        <div class="card-text">
+          <h3>Building design teams</h3>
+          <p>Wherever I've worked, I've built the design team. How I hire, grow people and earn design its place.</p>
+          <span class="card-link"><span class="u">Read the case</span><svg class="arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="hands" id="hands-on" aria-labelledby="hands-title">
+    <div class="wrap hands-head">
+      <div>
+        <h2 id="hands-title" data-reveal>Hands-on</h2>
+        <p data-reveal>These days, I spend more of my time setting design direction and leading teams, but I still love sitting down to design and getting the little details right so things feel clearer and easier to use. Here are a few of the projects I’ve most enjoyed designing.</p>
+      </div>
+      <div class="ho-arrows" data-ui>
+        <button type="button" data-dir="-1" aria-label="Previous project"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></button>
+        <button type="button" data-dir="1" aria-label="Next project"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+      </div>
+    </div>
+    <div class="ho-track" tabindex="0" aria-label="Hands-on projects, scroll sideways">
+      <a class="ho-slide" href="#hands-on-museu-del-disseny">
+        <img src="img/ho-museu.jpg" width="1600" height="909" alt="Museu del Disseny de Barcelona website on a laptop: the furniture history course and the events calendar" loading="lazy">
+        <span class="ho-caption"><b>Museu del Disseny</b> Website</span>
+      </a>
+      <a class="ho-slide" href="#hands-on-lvp">
+        <img src="img/ho-lvp.jpg" width="1600" height="909" alt="Screens of the LVP esports league app: teams, MVPs, line-ups and game menu" loading="lazy">
+        <span class="ho-caption"><b>LVP</b> Esports app</span>
+      </a>
+      <a class="ho-slide" href="#hands-on-right-side-coffee">
+        <img src="img/ho-rightside.jpg?v=2" width="1600" height="1000" alt="Right Side Coffee bags with a concentric line pattern and hand-drawn illustrations" loading="lazy">
+        <span class="ho-caption"><b>Right Side Coffee</b> Packaging</span>
+      </a>
+      <a class="ho-slide" href="#hands-on-bodegueo">
+        <img src="img/ho-bodegueo.jpg?v=2" width="1600" height="1000" alt="Bodegueo brand character riding a scooter" loading="lazy">
+        <span class="ho-caption"><b>Bodegueo</b> Brand identity</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="wrap about" id="about" aria-labelledby="about-title">
+    <h2 id="about-title" data-reveal>About</h2>
+    <div class="about-body">
+      <div class="about-text" data-reveal>
+        <p>I’ve spent more than 20 years designing digital products around the people who use them. I fell for design while studying journalism. Laying out the pages was the part I always looked forward to, and it led me to study graphic design and specialise in UX/UI.</p>
+        <p>I started out designing corporate websites and entertainment portals, then co-founded a design studio I ran for ten years. I went on to build a design department from scratch at a software company. Today, I lead the product design team I built at a fintech company.</p>
+        <p>I still love getting into the details of a flow and figuring out why someone gets stuck. And one of the things I love most about leading a team is seeing a designer grow more confident in their own judgement and take a piece of work further than I’d imagined.</p>
+      </div>
+      <dl data-reveal>
+        <div><dt>Based in</dt><dd>Barcelona</dd></div>
+        <div class="recognition"><dt>Recognition</dt><dd><ul>
+          <li>Anuaria Awards 2022 · Scarface 1920, selection</li>
+          <li>CLAP International Design Awards 2021 · Seeway, catalogue design</li>
+          <li>CLAP International Design Awards 2021 · Redzen Games, board game</li>
+        </ul></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="wrap" id="contact" aria-labelledby="contact-title">
+    <div class="panel dark contact">
+      <h2 id="contact-title" data-reveal>Let's talk.</h2>
+      <p class="lead" data-reveal>A team to build, or a product to make clear?</p>
+      <div class="contact-actions" data-reveal>
+        <a class="pill light" href="mailto:ebenedit@gmail.com" data-copy="ebenedit@gmail.com"><span>Email me</span></a>
+        <span class="visually-hidden" aria-live="polite" id="copy-status"></span>
+        <a class="pill ghost" href="https://www.linkedin.com/in/esterbenedit/" target="_blank" rel="noopener noreferrer">LinkedIn<svg class="ext" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
+        <a class="pill ghost" id="cv" href="cv/ester-benedit-cv2026.pdf" download>Download CV</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap foot">
+  <span>© 2026 Ester Benedit</span>
+  <a class="draw" href="https://www.instagram.com/esterbenedit/" target="_blank" rel="noopener noreferrer"><svg class="heart" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg><span class="u">I also draw</span><svg class="ext" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
+</footer>
+
+<!-- Preview control: shows the next ground colour; click to switch to it -->
+<button class="next-ground" type="button" data-ui aria-label="Change the page colour"><span class="coin" aria-hidden="true"></span></button>
+<script src="main.js?v=12"></script>
+</body>
+</html>
