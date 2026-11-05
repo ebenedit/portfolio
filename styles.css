@@ -205,6 +205,7 @@ main > section:first-child { margin-top: 0; }
 @media (hover: none) { .card.overlay .shot::after { opacity: 1; } }
 /* Checkout: light screens need a darker layer for the text to read */
 .card.overlay.deep .shot::after { background: linear-gradient(to bottom, rgb(0 0 0 / 0.55), rgb(0 0 0 / 0.9)); }
+.card.overlay.clear .shot::after { background: linear-gradient(to bottom, rgb(0 0 0 / 0) 35%, rgb(0 0 0 / 0.6)); } /* Checkout: the animation already sits on dark blue, so a much lighter scrim, only behind the text */
 .card.overlay .card-text p:not(.meta), .card.overlay .meta { color: rgb(243 243 241 / 0.82); }
 /* The line under each card title keeps the title's colour */
 .card .card-text p.card-head:not(.meta) { font-size: var(--step-small); font-weight: 400; color: inherit; line-height: 1.3; }
