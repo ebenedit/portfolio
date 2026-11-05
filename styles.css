@@ -201,11 +201,13 @@ main > section:first-child { margin-top: 0; }
 .card.overlay .shot.framed { container-type: inline-size; background: #3450e6 url("img/checkout-fondo.jpg") center / cover no-repeat; }
 .card.overlay .shot.framed video { position: absolute; left: 4.3%; top: 14.5%; width: 91.4%; height: auto; aspect-ratio: 1440 / 968; object-fit: cover; border-radius: 2cqi; } /* corner radius in proportion, as in the Merchant Portal cover */
 .card.overlay .shot::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgb(0 0 0 / 0.4), rgb(0 0 0 / 0.8)); opacity: 0.6; transition: opacity 400ms var(--ease-out); } /* scrim for legibility, Ester's request: lighter at rest, full when the text opens */
-.card.overlay:hover .shot::after, .card.overlay:focus-visible .shot::after { opacity: 1; }
+.card.overlay:focus-visible .shot::after { opacity: 1; }
+@media (hover: hover) { .card.overlay:hover .shot::after { opacity: 1; } } /* phones keep :hover after a tap, so hover only where there's a mouse */
 .card.overlay.is-open .shot::after { opacity: 1; }  /* touch: first tap opens the card */
 /* Checkout: light screens need a darker layer for the text to read */
 .card.overlay.deep .shot::after { background: linear-gradient(to bottom, rgb(0 0 0 / 0.55), rgb(0 0 0 / 0.9)); }
 .card.overlay.clear .shot::after { background: linear-gradient(to bottom, rgb(0 0 0 / 0) 30%, rgb(0 0 0 / 0.82)); } /* Checkout: the animation already sits on dark blue, so a much lighter scrim, darker only behind the text */
+@media (min-width: 761px) { .case-grid .card.overlay .shot::after { background: linear-gradient(to bottom, rgb(0 0 0 / 0) 30%, rgb(0 0 0 / 0.82)); } } /* desktop: every case card gets Checkout's lighter scrim */
 .card.overlay .card-text p:not(.meta), .card.overlay .meta { color: rgb(243 243 241 / 0.82); }
 /* The line under each card title keeps the title's colour */
 .card .card-text p.card-head:not(.meta) { font-size: var(--step-small); font-weight: 400; color: inherit; line-height: 1.3; }
@@ -215,7 +217,8 @@ main > section:first-child { margin-top: 0; }
 .card-text { gap: 0; }
 .card-text h3 + .card-head { margin-top: 0.75rem; }
 .card-more > div > :first-child { margin-top: 0.75rem; }
-.card:hover .card-more, .card:focus-visible .card-more { grid-template-rows: 1fr; opacity: 1; }
+.card:focus-visible .card-more { grid-template-rows: 1fr; opacity: 1; }
+@media (hover: hover) { .card:hover .card-more { grid-template-rows: 1fr; opacity: 1; } }
 .card.is-open .card-more { grid-template-rows: 1fr; opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .card-more { transition: none; } }
 .shot.phones { grid-template-columns: repeat(3, minmax(0, 9rem)); justify-content: center; gap: clamp(0.5rem, 1.5vw, 1.25rem); align-items: start; }
