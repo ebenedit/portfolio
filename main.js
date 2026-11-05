@@ -1,4 +1,4 @@
-// Home proposal 03: menu, fitted name and scroll reveals.
+// Home proposal 06 (03 with Mattone): menu, fitted name and scroll reveals.
 (() => {
   // Always open on the first screen: don't let the browser restore an old scroll position.
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
@@ -76,6 +76,44 @@
     };
     window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(check); } }, { passive: true });
     check();
+  }
+
+  // Hero subtitle: the phrases take turns, their letters appearing from left to right.
+  const phrases = [...document.querySelectorAll('.rotator .phrase')];
+  // Split each line into letters (words kept whole so they never break); a hidden copy keeps it readable for screen readers.
+  phrases.forEach(ph => {
+    let c = 0;
+    ph.querySelectorAll('.ln').forEach(ln => {
+      const text = ln.textContent;
+      const shown = document.createElement('span');
+      shown.setAttribute('aria-hidden', 'true');
+      text.split(' ').forEach((word, w) => {
+        if (w) { shown.append(' '); c++; }
+        const wd = document.createElement('span'); wd.className = 'wd';
+        for (const ch of word) { const l = document.createElement('span'); l.className = 'ch'; l.style.setProperty('--c', c++); l.textContent = ch; wd.append(l); }
+        shown.append(wd);
+      });
+      const said = Object.assign(document.createElement('span'), { className: 'visually-hidden', textContent: text });
+      ln.replaceChildren(said, shown);
+    });
+  });
+  // Type the first phrase in on load too.
+  phrases[0]?.classList.remove('is-on'); void document.body.offsetWidth; phrases[0]?.classList.add('is-on');
+  if (phrases.length > 1) {
+    let i = 0;
+    // The box takes the height of the showing phrase, so the role under it moves up or down with it.
+    const box = phrases[0].parentElement;
+    const fitBox = () => { box.style.height = `${phrases[i].offsetHeight}px`; };
+    fitBox();
+    window.addEventListener('resize', fitBox);
+    if (document.fonts) document.fonts.ready.then(fitBox);
+    setInterval(() => {
+      if (document.hidden) return;
+      const out = phrases[i]; i = (i + 1) % phrases.length; const inn = phrases[i];
+      out.classList.replace('is-on', 'is-off'); out.setAttribute('aria-hidden', 'true');
+      inn.classList.remove('is-off'); void inn.offsetWidth; inn.classList.add('is-on'); inn.removeAttribute('aria-hidden');
+      setTimeout(fitBox, 350); // once the old phrase is mostly gone
+    }, 7000);
   }
 
   // Card videos: no autoplay for people who ask for less motion.
