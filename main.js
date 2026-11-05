@@ -116,6 +116,18 @@
     }, 7000);
   }
 
+  // Case cards on touch screens work like hover on desktop: the first tap opens
+  // the card and shows the rest of the text; Read the case then opens the case.
+  const touch = matchMedia('(hover: none)');
+  const cards = [...document.querySelectorAll('.case-grid .card')];
+  cards.forEach((card) => card.addEventListener('click', (e) => {
+    if (!touch.matches || e.target.closest('.card-link')) return;
+    e.preventDefault();
+    const open = !card.classList.contains('is-open');
+    cards.forEach((c) => c.classList.remove('is-open'));
+    card.classList.toggle('is-open', open);
+  }));
+
   // Card videos: no autoplay for people who ask for less motion.
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.querySelectorAll('.card video').forEach(v => { v.removeAttribute('autoplay'); v.pause(); });
