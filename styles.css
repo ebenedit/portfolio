@@ -106,10 +106,12 @@ h3 { font-family: var(--font-text); font-weight: 600; font-size: var(--step-h3);
   min-height: calc(100svh - 70px);
   display: flex; flex-direction: column; justify-content: space-between; gap: 3rem;
   padding-bottom: calc(clamp(1.5rem, 3vw, 2.75rem) + clamp(1rem, 2vw, 2rem));
-  /* Parallax: the name drifts down slower than the page and is cut at the hero's
-     bottom edge, which is exactly where How I work starts, so it slides under it. */
-  overflow: clip;
+  /* Parallax: the name drifts down slower than the page and passes behind How I work,
+     which sits above it, so the panel's rounded corners show the name going under them
+     (as on redzengames.com, Ester's reference). */
+  position: relative; z-index: 0;
 }
+#how-i-work { position: relative; z-index: 1; }
 .name { will-change: transform; }
 .intro { display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; padding-top: clamp(1rem, 3vw, 2.5rem); }
 .intro-text { max-width: 40rem; display: grid; gap: 0.6rem; }
