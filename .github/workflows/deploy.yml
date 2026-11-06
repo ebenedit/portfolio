@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Collect the site files
-        run: mkdir _site && cp -R index.html styles.css main.js fonts-mattone.css fonts-mattone-OFL.txt img cv icons _site/
+        run: mkdir _site && cp -R index.html styles.css main.js fonts-mattone.css fonts-mattone-OFL.txt robots.txt sitemap.xml img cv icons _site/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
