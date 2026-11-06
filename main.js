@@ -97,6 +97,7 @@
       ln.replaceChildren(said, shown);
     });
   });
+  phrases[0]?.parentElement.classList.add('is-split');
   // Type the first phrase in on load too.
   phrases[0]?.classList.remove('is-on'); void document.body.offsetWidth; phrases[0]?.classList.add('is-on');
   if (phrases.length > 1) {

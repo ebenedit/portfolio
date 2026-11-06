@@ -120,6 +120,9 @@ h3 { font-family: var(--font-text); font-weight: 600; font-size: var(--step-h3);
    sweeps out the same way, faster. */
 .rotator { display: grid; align-items: start; transition: height 700ms var(--ease-out); }
 .rotator .phrase { grid-area: 1 / 1; }
+.rotator:not(.is-split) .phrase + .phrase { display: none; }  /* both phrases share the cell: only one until main.js has split them, or they flash on top of each other */
+.js .rotator:not(.is-split) { visibility: hidden; animation: show-late 0s 3s forwards; }  /* hidden until it types in; shown anyway if main.js never runs */
+@keyframes show-late { to { visibility: visible; } }
 .rotator .ln { display: block; }
 .rotator .wd { display: inline-block; white-space: nowrap; }
 .rotator .ch { opacity: 0; }
