@@ -389,7 +389,7 @@ main > section:first-child { margin-top: 0; }
   .shot.numerals { gap: 1.5rem; aspect-ratio: auto; padding-top: 4rem; }
   .about { grid-template-columns: 1fr; }
   .ho-slide { --ho-h: 13rem; }
-  .about dl { grid-template-columns: 1fr; }
+  .about dl { grid-template-columns: 1fr; row-gap: 2rem; }  /* phones: clear space between Based in, Recognition and Interviews */
   .foot { flex-direction: column; }
 }
 
