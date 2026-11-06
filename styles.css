@@ -200,14 +200,14 @@ main > section:first-child { margin-top: 0; }
 /* Checkout video sits on Ester's blue background, placed as in her mockup */
 .card.overlay .shot.framed { container-type: inline-size; background: #3450e6 url("img/checkout-fondo.jpg") center / cover no-repeat; }
 .card.overlay .shot.framed video { position: absolute; left: 4.3%; top: 14.5%; width: 91.4%; height: auto; aspect-ratio: 1440 / 968; object-fit: cover; border-radius: 2cqi; } /* corner radius in proportion, as in the Merchant Portal cover */
-.card.overlay .shot::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgb(0 0 0 / 0.4), rgb(0 0 0 / 0.8)); opacity: 0.6; transition: opacity 400ms var(--ease-out); } /* scrim for legibility, Ester's request: lighter at rest, full when the text opens */
+.card.overlay .shot::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgb(0 0 0 / 0.4), rgb(0 0 0 / 0.8)); opacity: 0.72; transition: opacity 400ms var(--ease-out); } /* scrim for legibility, Ester's request: lighter at rest, full when the text opens */
 .card.overlay:focus-visible .shot::after { opacity: 1; }
 @media (hover: hover) { .card.overlay:hover .shot::after { opacity: 1; } } /* phones keep :hover after a tap, so hover only where there's a mouse */
 .card.overlay.is-open .shot::after { opacity: 1; }  /* touch: first tap opens the card */
 /* Checkout: light screens need a darker layer for the text to read */
 .card.overlay.deep .shot::after { background: linear-gradient(to bottom, rgb(0 0 0 / 0.55), rgb(0 0 0 / 0.9)); }
-.card.overlay.clear .shot::after { background: linear-gradient(to bottom, rgb(0 0 0 / 0) 30%, rgb(0 0 0 / 0.82)); } /* Checkout: the animation already sits on dark blue, so a much lighter scrim, darker only behind the text */
-@media (min-width: 761px) { .case-grid .card.overlay .shot::after { background: linear-gradient(to bottom, rgb(0 0 0 / 0) 30%, rgb(0 0 0 / 0.82)); } } /* desktop: every case card gets Checkout's lighter scrim */
+.card.overlay.clear .shot::after { background: linear-gradient(to bottom, rgb(0 0 0 / 0.1), rgb(0 0 0 / 0.1) 30%, rgb(0 0 0 / 0.88)); } /* Checkout: the animation already sits on dark blue, so a much lighter scrim, darker only behind the text */
+@media (min-width: 761px) { .case-grid .card.overlay .shot::after { background: linear-gradient(to bottom, rgb(0 0 0 / 0.1), rgb(0 0 0 / 0.1) 30%, rgb(0 0 0 / 0.88)); } } /* desktop: every case card gets Checkout's lighter scrim */
 .card.overlay .card-text p:not(.meta), .card.overlay .meta { color: rgb(243 243 241 / 0.82); }
 /* The line under each card title keeps the title's colour */
 .card .card-text p.card-head:not(.meta) { font-size: var(--step-small); font-weight: 400; color: inherit; line-height: 1.3; }
