@@ -207,4 +207,19 @@
     el.style.setProperty('--stagger', `${Math.min(sibs.indexOf(el), 5) * 70}ms`);
     if (io) io.observe(el); else el.classList.add('is-in');
   });
+
+  // Card animations (Merchant Portal chart, Kuady phones): play when the card comes into view,
+  // and again on hover with a mouse or on tap on touch screens.
+  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.pie, .phones-in').forEach((el) => {
+      const play = () => { el.classList.remove('play'); void el.offsetWidth; el.classList.add('play'); };
+      el.classList.add('armed');
+      const seen = new IntersectionObserver((entries) => {
+        if (entries.some((e) => e.isIntersecting)) { play(); seen.disconnect(); }
+      }, { threshold: 0.45 });
+      seen.observe(el);
+      const card = el.closest('.card');
+      card.addEventListener(matchMedia('(hover: hover)').matches ? 'mouseenter' : 'click', play);
+    });
+  }
 })();
