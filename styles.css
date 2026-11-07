@@ -179,6 +179,7 @@ main > section:first-child { margin-top: 0; }
   display: grid; grid-template-rows: minmax(0, 1fr) auto; min-width: 0;
   aspect-ratio: 1; /* true squares, so whole pictures fit */
 }
+.card { clip-path: inset(0 round var(--radius)); -webkit-tap-highlight-color: transparent; } /* phones: keep the scrim inside the rounded corners while it fades, and no square tap flash */
 .card.article { grid-template-rows: 1fr; align-items: end; }
 .card.dark { background: var(--inv-bg); color: var(--inv-ink); }
 .card.grey { background: var(--surface); }
@@ -353,7 +354,7 @@ main > section:first-child { margin-top: 0; }
 
 /* Phone */
 @media (max-width: 760px) {
-  .bar { flex-wrap: wrap; --bar-gap: 0.75rem; }
+  .bar { flex-wrap: wrap; --bar-gap: 0.75rem; row-gap: 0; } /* no gap above the open menu, so the divider meets its line */
   .bar-name { font-size: 0.875rem; }
   .bar.is-stuck .bar-name { margin-right: 0; }
   .bar.is-stuck .menu-toggle { order: 1; }
@@ -368,8 +369,10 @@ main > section:first-child { margin-top: 0; }
   .menu-toggle[aria-expanded="true"] .i-open { display: none; }
   .menu-toggle[aria-expanded="true"] .i-close { display: block; }
   .bar .pill, .bar .divider { order: 2; }
+  .bar .divider { min-height: 70px; } /* keeps the top row at the bar's 70px when the menu opens below it */
   .bar nav { order: 3; flex-basis: 100%; margin: 0; display: none; }
-  .bar nav.open { display: block; }
+  /* Open menu: a line where the bar ended, edge to edge (Ester's request) */
+  .bar nav.open { display: block; border-top: 1px solid var(--ink); flex-basis: calc(100% + 2 * var(--margin)); margin-inline: calc(-1 * var(--margin)); padding-inline: var(--margin); }
   .bar nav ul { flex-direction: column; gap: 0; padding-block: 0.5rem; }
   .bar nav a { display: block; font-size: var(--step-body); padding-block: 0.6rem; }
   html:not(.js) .bar nav { display: block; }
