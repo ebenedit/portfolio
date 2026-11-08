@@ -248,8 +248,8 @@ main > section:first-child { margin-top: 0; }
 /* Case cards show title and subtitle; the rest opens on hover or keyboard focus, and always on touch screens */
 .card-more { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows 400ms var(--ease-out), opacity 300ms var(--ease-out); }
 .card-more > div { min-height: 0; overflow: hidden; display: grid; gap: 0.75rem; }
-.card-text { gap: 0; }
-.card-text h3 + .card-head { margin-top: 0.75rem; }
+.case-grid .card-text { padding: 40px; } /* Ester: 40px around the case card text */
+.card-text { gap: 0; } /* at rest only the title shows; the subtitle and the rest open on hover or tap (Ester's request) */
 .card-more > div > :first-child { margin-top: 0.75rem; }
 .card:focus-visible .card-more { grid-template-rows: 1fr; opacity: 1; }
 @media (hover: hover) { .card:hover .card-more { grid-template-rows: 1fr; opacity: 1; } }
