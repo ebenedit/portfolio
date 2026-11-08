@@ -370,12 +370,21 @@ main > section:first-child { margin-top: 0; }
   .menu-toggle[aria-expanded="true"] .i-close { display: block; }
   .bar .pill, .bar .divider { order: 2; }
   .bar .divider { min-height: 70px; } /* keeps the top row at the bar's 70px when the menu opens below it */
-  .bar nav { order: 3; flex-basis: 100%; margin: 0; display: none; }
+  /* The menu slides open and fades in (Ester: it opened too abruptly). Closed, it keeps no height
+     and its links can't take focus; the line where the bar ended stays until it has closed. */
+  .bar nav {
+    order: 3; flex-basis: calc(100% + 2 * var(--margin)); margin: 0 calc(-1 * var(--margin)); padding-inline: var(--margin);
+    display: grid; grid-template-rows: 0fr; opacity: 0; visibility: hidden; border-top: 0 solid var(--ink);
+    transition: grid-template-rows 400ms var(--ease-out), opacity 300ms var(--ease-out), visibility 0s 400ms, border-top-width 0s 400ms;
+  }
   /* Open menu: a line where the bar ended, edge to edge (Ester's request) */
-  .bar nav.open { display: block; border-top: 1px solid var(--ink); flex-basis: calc(100% + 2 * var(--margin)); margin-inline: calc(-1 * var(--margin)); padding-inline: var(--margin); }
-  .bar nav ul { flex-direction: column; gap: 0; padding-block: 0.5rem; }
+  .bar nav.open { grid-template-rows: 1fr; opacity: 1; visibility: visible; border-top-width: 1px; transition: grid-template-rows 400ms var(--ease-out), opacity 300ms var(--ease-out) 60ms; }
+  .bar nav ul { flex-direction: column; gap: 0; min-height: 0; overflow: hidden; }
+  .bar nav li:first-child { padding-top: 0.5rem; }
+  .bar nav li:last-child { padding-bottom: 0.5rem; }
   .bar nav a { display: block; font-size: var(--step-body); padding-block: 0.6rem; }
-  html:not(.js) .bar nav { display: block; }
+  html:not(.js) .bar nav { grid-template-rows: 1fr; opacity: 1; visibility: visible; border-top-width: 1px; }
+  @media (prefers-reduced-motion: reduce) { .bar nav, .bar nav.open { transition: none; } }
 
   /* Phone first screen: photo top right, role and summary under it, name at the bottom */
   .hero { min-height: calc(100svh - 70px); gap: 2rem; }
