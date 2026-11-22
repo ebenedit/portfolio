@@ -91,7 +91,7 @@
   .cs-split:has(#s1) { grid-template-columns: minmax(min-content, 1fr) minmax(0, 1fr); }
 }
 .cs-num { font-family: var(--font-display); font-weight: var(--display-weight); font-size: clamp(1.375rem, 1.1rem + 1.1vw, 2rem); line-height: calc(1.1em + 2px); }  /* +2px (Ester) */
-.cs h2 { font-family: var(--font-text); font-weight: 700; font-size: var(--cs-text); line-height: 1.7; letter-spacing: 0; }  /* subtitles: Inter Bold at the text size, Ester's request */
+.cs h2 { font-family: var(--font-text); font-weight: 700; font-size: var(--cs-text); text-wrap: wrap; line-height: 1.7; letter-spacing: 0; }  /* subtitles: Inter Bold at the text size, Ester's request */
 .cs-head:not(:has(.cs-num)) h2 { font-family: var(--font-display); font-weight: var(--display-weight); font-size: clamp(1.375rem, 1.1rem + 1.1vw, 2rem); line-height: calc(1.1em + 2px); }
 .cs-copy { display: grid; gap: 1em; max-width: 46rem; font-size: var(--cs-text); line-height: 1.7; }  /* as small as the hero paragraph, Ester's request */
 .cs-copy.cs-wide { max-width: min(46rem, calc((100% - var(--col-gap)) / 2)); }  /* same width as the text column of the split sections */
