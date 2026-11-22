@@ -104,12 +104,12 @@
 .cs-stats { display: grid; grid-template-columns: auto auto auto; justify-content: center; gap: clamp(1.5rem, 4.5vw, 4rem); align-self: center; }
 .cs-stats li { display: grid; align-content: start; gap: 0.75rem; }
 .cs-stats b { font-family: var(--font-display); font-weight: 900; font-size: clamp(3rem, 1.4rem + 5vw, 6.25rem); line-height: 0.85; letter-spacing: -0.02em; }
-.cs-stats span { font-family: var(--font-display); font-weight: var(--display-weight); font-size: clamp(0.8125rem, 0.75rem + 0.3vw, 1.0625rem); line-height: 1.25; max-width: 14rem; }
+.cs-stats span { font-family: var(--font-display); font-weight: 400; font-size: clamp(0.75rem, 0.69rem + 0.25vw, 0.9375rem); line-height: 1.25; max-width: 14rem; }
 
 /* 03: the two proposals */
 .cs-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 1.5rem); margin-top: clamp(2rem, 4vw, 3rem); }
 .cs-pair figcaption { display: grid; gap: 0.15rem; margin-top: 1rem; font-size: var(--step-small); color: var(--muted); }
-.cs-pair figcaption b { font-family: var(--font-display); font-weight: var(--display-weight); font-size: var(--step-h3); color: var(--ink); }
+.cs-pair figcaption b { font-family: var(--font-display); font-weight: var(--display-weight); font-size: clamp(1rem, 0.92rem + 0.35vw, 1.1875rem); color: var(--ink); }
 
 /* Images still to come: a marked gap saying what goes there */
 .cs-placeholder {
@@ -164,6 +164,8 @@
 .zoom-btn:hover { transform: scale(1.15); }
 .zoom-btn:hover svg, .zoom-btn:focus-visible svg { opacity: 1; }
 .zoom-btn:focus-visible { outline: 2px solid #fff; outline-offset: 2px; border-radius: 0.5rem; }
+.zoom-btn.on-light { color: #0d1240; }  /* dark icon on light images (AI diagram) */
+.zoom-btn.on-light:focus-visible { outline-color: #0d1240; }
 .lightbox {
   max-width: none; max-height: none; width: 100vw; height: 100dvh; margin: 0; padding: clamp(1rem, 4vw, 3rem);
   border: 0; background: transparent; place-items: center; cursor: zoom-out;

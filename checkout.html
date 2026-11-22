@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="fonts-mattone.css?v=1">
   <link rel="stylesheet" href="styles.css?v=137">
-  <link rel="stylesheet" href="case.css?v=41">
+  <link rel="stylesheet" href="case.css?v=45">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body class="case" style="--case: #000b36;">
@@ -186,7 +186,7 @@
     </div>
     <figure class="cs-media zoomable" data-reveal>
       <button class="zoom-btn" type="button" aria-label="Enlarge image"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></button>
-      <img src="img/checkout/tracking-pix.webp" width="1328" height="1000" loading="lazy" alt="Pix payment step with six tracked interactions numbered on it, and the Copy code event showing 405,896 clicks (52%) and 122,505 users clicked (78%)">
+      <img src="img/checkout/tracking-pix.webp?v=2" width="1328" height="1000" loading="lazy" alt="Pix payment step with six tracked interactions numbered on it, and the Copy code event showing 405,896 clicks (52%) and 122,505 users clicked (78%)">
     </figure>
   </section>
 
@@ -197,22 +197,14 @@
         <h2 id="s7">Scaling continuous improvement with AI</h2>
       </header>
       <div class="cs-copy" data-reveal>
-        <p>As the checkout rolled out to more markets, a new challenge appeared: finding and handling problems in a more efficient, scalable way.</p>
-        <p>I saw the need to analyse several sources (videos of complete payment journeys, thousands of FullStory sessions and support tickets) to spot issues and opportunities to improve.</p>
-        <p>From there, I asked my product designer to design an AI-assisted workflow that would:</p>
-        <ul class="cs-list">
-          <li>Rebuild payment flows from the videos.</li>
-          <li>Detect, review and classify possible issues.</li>
-          <li>Identify who owns each issue.</li>
-          <li>Create Jira tickets for internal problems and reports for merchants.</li>
-          <li>Track issues and their impact on conversion.</li>
-        </ul>
-        <p>The goal is to turn large volumes of information into concrete actions, with less manual analysis and easier continuous improvement.</p>
-        <p>Beyond automating tasks, it’s about using AI to extend our ability to find problems, make decisions and improve the payment experience.</p>
+        <p>As we rolled out the redesigned checkout to more markets, we needed a more efficient way to identify, track, and report issues at scale.</p>
+        <p>We saw an opportunity to use AI to analyze end-to-end checkout recordings, thousands of Fullstory sessions, and support tickets. By bringing these sources together, we aimed to uncover recurring points of friction and identify opportunities to improve the payment experience.</p>
+        <p>As Product Design Lead, I defined the process from reviewing evidence to documenting and reporting issues. The Product Designer used that process to design the AI-assisted workflow.</p>
       </div>
     </div>
-    <figure class="cs-media" data-reveal>
-      <div class="cs-placeholder"><span>Diagram: the AI workflow, from sessions to tickets and merchant reports</span></div>
+    <figure class="cs-media zoomable" data-reveal>
+      <button class="zoom-btn on-light" type="button" aria-label="Enlarge image"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></button>
+      <img src="img/checkout/ai-workflow.webp?v=8" width="1328" height="1000" loading="lazy" alt="Issue extraction to raise conversion. Inputs: video recordings (90 issues), Fullstory sessions (18), Helpdesk tickets (3) and other sources (2). The AI analysis extracts 113 issues, discards 25 and triages 88 by type, priority and owner. Then by owner and output: 33 merchant issues go into a report for AM and Merchant Support, 55 PSP issues become 19 Jira tickets">
     </figure>
   </section>
 
