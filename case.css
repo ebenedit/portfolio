@@ -1,0 +1,197 @@
+/* Case study pages, from Ester's Checkout draft (Figma, Nov 2026).
+   Each case has its own colour (--case), set on <body>: the bar and the hero take it.
+   Below the hero: numbered sections, text beside one image, alternating sides. */
+
+.case { --case: #000b36; --case-ink: #f3f3f1; }
+
+/* Bar and hero share the case colour, as one block */
+/* Transparent bar over the hero, which runs up behind it (Ester); once the hero has scrolled away it takes the case colour so it stays readable over the white page */
+.case .bar { background: transparent; color: var(--case-ink); border-bottom-color: rgb(243 243 241 / 0.35); }
+.case .bar { isolation: isolate; }
+/* A fake background: a navy layer behind the bar that fades in as soon as the page scrolls (Ester), and while the phone menu is open */
+.case .bar::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--case); opacity: 0; transition: opacity 300ms var(--ease-out); pointer-events: none; }
+.case .bar.is-solid::before, .case .bar:has(nav.open)::before { opacity: 1; }
+.case .bar .divider { background: rgb(243 243 241 / 0.35); }
+.case .bar .menu-toggle { color: var(--case-ink); }
+.case .bar .pill.outline:hover { background: var(--case-ink); color: var(--case); box-shadow: inset 0 0 0 1px var(--case-ink); }
+.case .bar nav a[aria-current] { text-decoration: underline; }
+.case .bar :focus-visible { outline-color: var(--case-ink); }
+.case .bar-name { max-width: 14rem; margin-right: 0.5rem; opacity: 1; transform: none; }  /* always shown: there's no big name to hand over from */
+@media (max-width: 760px) { .case .bar nav { border-top-color: rgb(243 243 241 / 0.35); } }
+/* Past the hero the bar turns white with black text and lines, like the home (Ester) */
+.case .bar { transition: color 300ms var(--ease-out), border-color 300ms var(--ease-out); }
+.case .bar::before { transition: opacity 300ms var(--ease-out), background-color 300ms var(--ease-out); }
+.case .bar .divider, .case .bar .menu-toggle { transition: background-color 300ms var(--ease-out), color 300ms var(--ease-out); }
+.case .bar.is-light { color: var(--ink); border-bottom-color: var(--ink); }
+.case .bar.is-light::before { background: var(--bg); }
+.case .bar.is-light .divider { background: var(--ink); }
+.case .bar.is-light .menu-toggle { color: var(--ink); }
+.case .bar.is-light .pill.outline:hover { background: var(--ink); color: var(--bg); box-shadow: inset 0 0 0 1px var(--ink); }
+.case .bar.is-light :focus-visible { outline-color: var(--ink); }
+@media (max-width: 760px) { .case .bar.is-light nav { border-top-color: var(--ink); } }
+
+.case-hero {
+  /* Ester's Figma: navy with two soft blue glows, one on the left edge, one behind the screens */
+  background:
+    radial-gradient(circle at 1.5% 60%, rgb(0 26 128 / 0.95), rgb(0 26 128 / 0) 26rem),
+    radial-gradient(circle at 80% 21%, rgb(1 20 96 / 0.95), rgb(1 20 96 / 0) 30rem),
+    var(--case);
+  background-repeat: no-repeat; background-origin: border-box;
+  margin-top: -70px; border-top: 70px solid transparent;  /* runs up behind the bar */
+  color: var(--case-ink);
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--col-gap);
+  min-height: calc(var(--hero-h) + 70px);  /* desktop: the screens sit centred in this height (Ester); +70px for the part behind the bar */
+  --hero-pad: clamp(2rem, 3.5vw, 3.25rem);
+  padding-block: var(--hero-pad);  /* same room above and below, so the screens centre */
+  overflow: hidden;
+}
+.case { --col-gap: clamp(2rem, 5vw, 5rem); }  /* the page's two columns, Ester's grid */
+.case { --hero-h: clamp(32rem, 100svh - 70px - 10rem, 44rem); }  /* shorter than the screen, so the fact band and what follows peek in (Ester) */
+.case-hero-text { display: grid; gap: 1.5rem; align-self: end; padding-bottom: calc(clamp(2.5rem, 5vw, 4.5rem) - var(--hero-pad)); position: relative; z-index: 1; }  /* the title passes over the faded screen */
+.case-hero h1 {
+  font-family: var(--font-display); font-weight: 900; font-size: clamp(2rem, 3.3vw, 3.75rem);  /* scales with the page so the long line never reaches the screens */
+  line-height: 1.08; letter-spacing: -0.01em;
+}
+.case-hero h1 .ln { display: block; }
+@media (min-width: 701px) { .case-hero h1 .ln { white-space: nowrap; } }  /* two lines, the second runs past the column as in the Figma; phones let it wrap */
+.case-hero p { color: rgb(243 243 241 / 0.85); max-width: 30rem; font-size: var(--step-small); line-height: 1.7; }
+/* Two real screens: the checkout sits on the hero's bottom edge, Payment successful beside it, a little lower than its top */
+.case-hero-shots { position: relative; align-self: center; justify-self: end; width: min(80%, calc((var(--hero-h) - 7rem) * 562 / 692), 35rem); aspect-ratio: 562 / 692; }  /* centred vertically, with room above and below; 80% of the column at most */
+.case-hero-shots img { position: absolute; height: auto; }
+.case-hero-shots .shot-main { left: 0; top: 0; width: 51.07%; }
+.case-hero-shots .shot-side { left: 53.2%; top: 16.18%; width: 46.8%; }
+/* A third screen, the methods list, at 50% (alpha in the PNG), hanging out to the left under the title */
+.case-hero-shots .shot-back { left: -52.49%; top: 21.24%; width: 50.05%; }
+/* Desktop: the group sits a little in from the right edge (Ester) */
+@media (min-width: 1301px) { .case-hero-shots { margin-right: clamp(2rem, 5vw, 6rem); } }
+/* Entrance: the checkout first, then the methods list on the left, then Payment successful on the right */
+.js .case-hero-shots img { animation: shot-in 1600ms var(--ease-expo) both; }  /* slower, with a longer rise (Ester) */
+.js .case-hero-shots .shot-main { animation-delay: 200ms; }
+.js .case-hero-shots .shot-back { animation-delay: 700ms; }
+.js .case-hero-shots .shot-side { animation-delay: 1200ms; }
+@keyframes shot-in { from { opacity: 0; transform: translateY(7rem); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .js .case-hero-shots img { animation: none; } }
+
+/* Fact sheet band */
+.case-facts-band { background: #e5e8f3; padding-block: clamp(2rem, 4vw, 3.5rem); }
+.case-facts { margin: 0; display: grid; gap: 0.45rem; font-size: var(--step-small); line-height: 1.5; }
+.case-facts div { display: block; }
+.case-facts dt, .case-facts dd { display: inline; margin: 0; }
+.case-facts dt { font-weight: 600; }
+.case-facts dd { font-weight: 400; }
+
+/* Sections */
+.case-body { padding-top: var(--section-gap); }
+.case-body > .cs + .cs { margin-top: var(--section-gap); }
+.cs-head { display: grid; gap: 1rem; margin-bottom: 1rem; }  /* more room between section title and subtitle (Ester) */
+.cs-num { font-family: var(--font-display); font-weight: var(--display-weight); font-size: clamp(1.375rem, 1.1rem + 1.1vw, 2rem); line-height: calc(1.1em + 2px); }  /* +2px (Ester) */
+.cs h2 { font-family: var(--font-text); font-weight: 700; font-size: var(--step-small); line-height: 1.7; letter-spacing: 0; }  /* subtitles: Inter Bold at the text size, Ester's request */
+.cs-head:not(:has(.cs-num)) h2 { font-family: var(--font-display); font-weight: var(--display-weight); font-size: clamp(1.375rem, 1.1rem + 1.1vw, 2rem); line-height: calc(1.1em + 2px); }
+.cs-copy { display: grid; gap: 1em; max-width: 46rem; font-size: var(--step-small); line-height: 1.7; }  /* as small as the hero paragraph, Ester's request */
+.cs-copy.cs-wide { max-width: min(46rem, calc((100% - var(--col-gap)) / 2)); }  /* same width as the text column of the split sections */
+.cs-list { display: grid; gap: 0.4em; padding-left: 1.2em; list-style: disc; }
+.cs-copy b { font-weight: 600; }  /* bold in running text and lists, same weight */
+.cs-list li::marker { font-size: 0.7em; }  /* smaller bullets (Ester) */
+
+/* Text and image side by side; .flip puts the image first on wide screens */
+.cs-split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem var(--col-gap); align-items: start; }  /* same two columns as the hero */
+.cs-split.flip .cs-media { order: -1; }
+.cs-media { border-radius: var(--radius); overflow: hidden; }
+.cs-media img { width: 100%; }
+.cs-media video { display: block; width: 100%; height: auto; }
+
+/* 01: the three figures, big in Mattone Black with Mattone labels, centred in the second column (Ester's Figma) */
+.cs-stats { display: grid; grid-template-columns: auto auto auto; justify-content: center; gap: clamp(1.5rem, 4.5vw, 4rem); align-self: center; }
+.cs-stats li { display: grid; align-content: start; gap: 0.75rem; }
+.cs-stats b { font-family: var(--font-display); font-weight: 900; font-size: clamp(3rem, 1.4rem + 5vw, 6.25rem); line-height: 0.85; letter-spacing: -0.02em; }
+.cs-stats span { font-family: var(--font-display); font-weight: var(--display-weight); font-size: clamp(0.8125rem, 0.75rem + 0.3vw, 1.0625rem); line-height: 1.25; max-width: 14rem; }
+
+/* 03: the two proposals */
+.cs-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 1.5rem); margin-top: clamp(2rem, 4vw, 3rem); }
+.cs-pair figcaption { display: grid; gap: 0.15rem; margin-top: 1rem; font-size: var(--step-small); color: var(--muted); }
+.cs-pair figcaption b { font-family: var(--font-display); font-weight: var(--display-weight); font-size: var(--step-h3); color: var(--ink); }
+
+/* Images still to come: a marked gap saying what goes there */
+.cs-placeholder {
+  aspect-ratio: 678 / 512; border-radius: var(--radius); background: var(--surface);
+  display: grid; place-items: center; padding: 2rem; text-align: center;
+  font-size: var(--step-small); color: var(--muted);
+}
+.cs-placeholder span { max-width: 24rem; }
+
+/* Closing statement */
+.cs-close { display: grid; gap: 1em; max-width: 52rem; font-family: var(--font-display); font-weight: 400; font-size: clamp(1.125rem, 1rem + 0.6vw, 1.5rem); line-height: 1.4; }
+
+.case-next { display: flex; justify-content: center; margin-top: var(--section-gap); padding-bottom: clamp(2rem, 5vw, 4rem); }
+
+/* Tablet and phone hero, from Ester's responsive frames: the three screens stay as one group above,
+   and the text rides over their lower part on a navy fade (navy at 0% to 100%) so it reads.
+   Sizes are in cqw (the hero's width) so the overlap holds at any width. Up to 1300px: her tablet frame is 1295 wide. */
+@media (max-width: 1300px) {
+  .case-hero { display: flex; flex-direction: column; container-type: inline-size; min-height: 0; padding-top: 3.75rem; padding-bottom: 0; }
+  .case-hero-shots { order: -1; align-self: auto; justify-self: auto; flex: none; width: 39.15cqw; margin-left: 56.45cqw; }  /* group 60% wide, close to the right edge (1295px frame) */
+  .case-hero-text {
+    align-self: stretch;
+    margin: -29cqw calc(-1 * var(--margin)) 0; padding: 6cqw var(--margin) clamp(2.5rem, 5vw, 4rem);
+    background: linear-gradient(to bottom, rgb(0 11 54 / 0), var(--case));  /* one long fade, 0% to 100% down to the hero's bottom edge, as in the tablet frame: the screens stay visible */
+  }
+}
+@media (max-width: 700px) {
+  .case-hero { padding-top: 2.5rem; }
+  .case-hero-shots { width: 58.4cqw; margin-left: 36.1cqw; }  /* group 89% wide, centred (644px frame) */
+  .case-hero-text { margin-top: -43cqw; padding-top: 24.5cqw; background: linear-gradient(to bottom, rgb(0 11 54 / 0), var(--case) 30cqw); }
+}
+@media (max-width: 1000px) {
+  .cs-split { grid-template-columns: 1fr; }
+  .cs-split.flip .cs-media { order: 0; }
+  .cs-copy.cs-wide { max-width: 46rem; }
+}
+@media (max-width: 760px) {
+  .case-hero { padding-top: 2.5rem; }
+  .cs-stats { justify-content: start; }
+  .cs-pair { grid-template-columns: 1fr; }
+}
+
+/* Expand button on images (top right) and the lightbox it opens */
+.zoomable { position: relative; }
+.zoom-btn {
+  position: absolute; top: clamp(0.75rem, 1.5vw, 1.25rem); right: clamp(0.75rem, 1.5vw, 1.25rem);
+  display: grid; place-items: center; width: 2.75rem; height: 2.75rem; padding: 0;
+  border: 0; background: none; color: #fff; cursor: zoom-in;  /* just the white icon, no circle (Ester) */
+  transition: transform 200ms, opacity 200ms;
+}
+.zoom-btn svg { width: 24px; height: 24px; stroke-width: 1.5; opacity: 0.75; transition: opacity 200ms; }  /* thinner and a little see-through (Ester) */
+.zoom-btn:hover { transform: scale(1.15); }
+.zoom-btn:hover svg, .zoom-btn:focus-visible svg { opacity: 1; }
+.zoom-btn:focus-visible { outline: 2px solid #fff; outline-offset: 2px; border-radius: 0.5rem; }
+.lightbox {
+  max-width: none; max-height: none; width: 100vw; height: 100dvh; margin: 0; padding: clamp(1rem, 4vw, 3rem);
+  border: 0; background: transparent; place-items: center; cursor: zoom-out;
+}
+.lightbox[open] { display: grid; animation: lb-in 250ms ease-out; }
+.lightbox::backdrop { background: rgb(0 11 54 / 0.92); animation: lb-in 250ms ease-out; }
+.lightbox img { max-width: 100%; max-height: calc(100dvh - 2 * clamp(1rem, 4vw, 3rem)); width: auto; height: auto; border-radius: var(--radius); cursor: default; }
+.lightbox-close {
+  position: fixed; top: 1rem; right: 1rem; display: grid; place-items: center; width: 2.75rem; height: 2.75rem;
+  border-radius: 50%; border: 1px solid rgb(255 255 255 / 0.5); background: transparent; color: #fff; cursor: pointer;
+}
+.lightbox-close:hover { background: #fff; color: var(--ink); }
+@keyframes lb-in { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .lightbox[open], .lightbox::backdrop { animation: none; } .zoom-btn { transition: none; } }
+
+/* Play / pause on the case videos: the icon appears on hover (pause while playing, play while paused) */
+.playable { position: relative; }
+.playable video { position: relative; z-index: 0; cursor: pointer; }
+.play-btn {
+  position: absolute; inset: 0; margin: auto; z-index: 2; display: grid; place-items: center; will-change: opacity;
+  width: 5rem; height: 5rem; padding: 0; border: 0; background: none; color: #fff; cursor: pointer;
+  opacity: 0; transition: opacity 250ms, transform 250ms; filter: drop-shadow(0 2px 8px rgb(0 0 0 / 0.35));
+}
+.play-btn svg { width: 3.5rem; height: 3.5rem; }
+.play-btn .i-play, .playable.is-paused .play-btn .i-pause { display: none; }
+.playable.is-paused .play-btn .i-play { display: block; }
+.playable:hover .play-btn, .play-btn:focus-visible { opacity: 0.85; }
+.play-btn:hover { opacity: 1 !important; transform: scale(1.08); }
+.play-btn:focus-visible { outline: 2px solid #fff; outline-offset: 2px; border-radius: 0.75rem; }
+@media (hover: none) { .playable.is-paused .play-btn { opacity: 0.85; } }  /* on touch, the play icon stays while paused */
+@media (prefers-reduced-motion: reduce) { .play-btn { transition: none; } }

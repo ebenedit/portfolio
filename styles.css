@@ -151,6 +151,7 @@ h3 { font-family: var(--font-text); font-weight: 600; font-size: var(--step-h3);
 /* Panels */
 .panel { border-radius: var(--radius); padding: clamp(1.75rem, 5vw, 4.5rem); }
 .panel.dark { background: var(--inv-bg); color: var(--inv-ink); }
+.panel.dark :is(h2, h3), .card.dark .card-text h3 { color: var(--bg); transition: color 400ms var(--ease-out); }  /* titles on black take the chosen ground colour (white stays white) */
 .panel.grey { background: var(--surface); }
 
 main > section { margin-top: var(--section-gap); }
@@ -439,4 +440,14 @@ body { transition: background-color 400ms var(--ease-out); }
   .intro-text { gap: 0.75rem; }
   .intro-text .lead { font-size: min(1.375rem, calc(100cqi / 19.3)); line-height: 1.3; } /* each sentence on one line */
   .role { font-size: 0.9375rem; }
+}
+
+/* Page changes: a soft crossfade instead of a hard cut (Ester: just a fade, nothing grows).
+   The bar keeps its place so it doesn't flash. Browsers without support just navigate. */
+@view-transition { navigation: auto; }
+.bar { view-transition-name: site-bar; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 450ms; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+::view-transition-group(site-bar) { animation-duration: 450ms; }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
 }

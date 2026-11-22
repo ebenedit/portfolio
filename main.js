@@ -129,9 +129,9 @@
     card.classList.toggle('is-open', open);
   }));
 
-  // Card videos: no autoplay for people who ask for less motion.
+  // Card and case videos: no autoplay for people who ask for less motion.
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.querySelectorAll('.card video').forEach(v => { v.removeAttribute('autoplay'); v.pause(); });
+    document.querySelectorAll('.card video, .cs-media video').forEach(v => { v.removeAttribute('autoplay'); v.pause(); });
   }
 
   // Hands-on strip: arrows move one project at a time.

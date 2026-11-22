@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checkout: rethinking how we pay · Ester Benedit</title>
+  <meta name="description" content="Case study: simplifying the payment experience across seven Latin American markets. Product strategy, UX/UI, design leadership and design systems.">
+  <meta name="robots" content="noindex"> <!-- draft: keep out of search until Ester approves it -->
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png?v=2">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="fonts-mattone.css?v=1">
+  <link rel="stylesheet" href="styles.css?v=137">
+  <link rel="stylesheet" href="case.css?v=41">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body class="case" style="--case: #000b36;">
+
+<header class="bar wrap is-stuck">
+  <a class="bar-name" href="index.html">Ester Benedit</a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+    <svg class="i-open" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    <svg class="i-close" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+  </button>
+  <nav id="menu" aria-label="Main">
+    <ul>
+      <li><a href="index.html#how-i-work">How I work</a></li>
+      <li><a href="index.html#case-studies" aria-current="true">Case studies</a></li>
+      <li><a href="index.html#hands-on">Hands-on</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="cv/ester-benedit-cv2026.pdf" target="_blank" rel="noopener">CV</a></li>
+    </ul>
+  </nav>
+  <span class="divider" aria-hidden="true"></span>
+  <a class="pill outline" href="mailto:ebenedit@gmail.com">Get in touch</a>
+</header>
+
+<section class="case-hero wrap" aria-labelledby="case-title">
+  <div class="case-hero-text">
+    <h1 id="case-title"><span class="ln">Checkout.</span> <span class="ln">Rethinking how we pay</span></h1>
+    <p>We redesigned the checkout of a payment service provider (PSP) to create a simpler, faster and more scalable experience for shoppers, one that adapts to different payment methods, markets and merchants.</p>
+  </div>
+  <figure class="case-hero-shots">
+    <img class="shot-back" src="img/checkout/hero-methods.png?v=4" width="563" height="968" alt="" aria-hidden="true">
+    <img class="shot-main" src="img/checkout/hero-checkout.png" width="574" height="1384" alt="The new checkout: Nequi, PSE, Credit card and Efecty as accordions, with the card form open">
+    <img class="shot-side" src="img/checkout/hero-result.png?v=2" width="526" height="915" alt="Payment successful screen: 150,000 COP paid, with Download, Share and Return to store">
+  </figure>
+</section>
+
+<!-- Fact sheet: a band under the hero, Ester's Figma -->
+<section class="case-facts-band wrap" aria-label="Project facts">
+  <dl class="case-facts">
+    <div><dt>My role:</dt> <dd>Product Design Manager</dd></div>
+    <div><dt>Product:</dt> <dd>B2C checkout, branded by each merchant</dd></div>
+    <div><dt>Scope:</dt> <dd>Product strategy · UX/UI · Design leadership · Design systems</dd></div>
+    <div><dt>Markets:</dt> <dd>Brazil, Mexico, Colombia, Argentina, Peru, Chile and Ecuador</dd></div>
+  </dl>
+</section>
+
+<main class="case-body">
+
+  <!-- 01 -->
+  <section class="wrap cs cs-split" aria-labelledby="s1">
+    <div class="cs-text">
+      <header class="cs-head" data-reveal>
+        <p class="cs-num">01. The challenge</p>
+        <h2 id="s1">Simplifying the payment experience across seven Latin American markets</h2>
+      </header>
+      <div class="cs-copy" data-reveal>
+        <p>Our goal was to simplify the payment experience and improve conversion. The hard part was offering one shared experience across seven countries with very different habits and payment methods: cards, bank transfers, QR codes or cash. Some markets had more than 20 options.</p>
+        <p>We needed a mobile-first solution that was intuitive and easy for each merchant to make their own.</p>
+      </div>
+    </div>
+    <ul class="cs-stats" data-reveal>
+      <li><b>1</b><span>Checkout</span></li>
+      <li><b>7</b><span>Markets</span></li>
+      <li><b>20+</b><span>Payment methods in some markets</span></li>
+    </ul>
+  </section>
+
+  <!-- 02 -->
+  <section class="wrap cs cs-split" aria-labelledby="s2">
+    <div class="cs-text">
+      <header class="cs-head" data-reveal>
+        <p class="cs-num">02. Understanding the problem</p>
+        <h2 id="s2">From complexity to a clear direction</h2>
+      </header>
+      <div class="cs-copy" data-reveal>
+        <p>There was no clear product definition of the payment methods, their priority in each country or the information each transaction needed. I proposed starting with a heuristic evaluation of the existing checkout and a competitor benchmark, which my team carried out. From their findings, we reviewed the main problems together and defined where to improve.</p>
+        <p>The analysis revealed four key challenges:</p>
+        <ul class="cs-list">
+          <li><b>Cognitive overload:</b> Too many payment options and unnecessary steps.</li>
+          <li><b>Lack of clarity:</b> Limited visibility of progress and unexpected redirects.</li>
+          <li><b>Inconsistent experience:</b> Different patterns across payment flows, vouchers and loading states.</li>
+          <li><b>Friction and recovery:</b> Intrusive form validation, unclear errors and limited navigation control.</li>
+        </ul>
+        <p>These findings gave us a direction before we started designing.</p>
+      </div>
+    </div>
+    <figure class="cs-media zoomable" data-reveal>
+      <button class="zoom-btn" type="button" aria-label="Enlarge image"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></button>
+      <img src="img/checkout/heuristic-en.webp" width="1328" height="1000" loading="lazy" alt="Heuristic evaluation of the old checkout: a long list of Chilean banks and a form with an error, annotated with four Nielsen heuristics: too many options, lack of clarity, friction and difficulty going back">
+    </figure>
+  </section>
+
+  <!-- 03 -->
+  <section class="wrap cs" aria-labelledby="s3">
+    <header class="cs-head" data-reveal>
+      <p class="cs-num">03. Exploring before deciding</p>
+      <h2 id="s3">Two proposals. One decision based on data</h2>
+    </header>
+    <div class="cs-copy cs-wide" data-reveal>
+      <p>I challenged the team to explore different interaction models. We shortlisted two: <b>Accordion</b>, which organised the methods into sections that open and close, and <b>Steps</b>, which guided shoppers through one stage after another. We chose Accordion for a strategic reason: Brazil was our main market, and around 80% of shoppers there paid with Pix. Our hypothesis was that showing Pix already open, with the QR code visible, would cut the interactions needed to pay.</p>
+      <p>We wanted to A/B test both proposals, but time and resources were limited, so I negotiated priorities with Business and Engineering. Together we agreed to go ahead with Accordion, measure how it performed and iterate on real data.</p>
+    </div>
+    <div class="cs-pair">
+      <figure data-reveal>
+        <div class="cs-media zoomable"><button class="zoom-btn" type="button" aria-label="Enlarge image"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></button><img src="img/checkout/proposal-accordion.webp" width="1328" height="1000" loading="lazy" alt="Accordion proposal: the payment methods on one screen, with Pix open showing its QR code, next to the payment successful screen"></div>
+        <figcaption><b>Accordion</b>Selected proposal</figcaption>
+      </figure>
+      <figure data-reveal>
+        <div class="cs-media zoomable"><button class="zoom-btn" type="button" aria-label="Enlarge image"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></button><img src="img/checkout/proposal-steps.webp?v=3" width="1328" height="1000" loading="lazy" alt="Steps proposal: the same flow split into stages with a progress bar, from choosing online or cash, to choosing Pix or Picpay, to the QR code and the payment successful screen"></div>
+        <figcaption><b>Steps</b>Explored alternative</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section class="wrap cs cs-split" aria-labelledby="s4">
+    <div class="cs-text">
+      <header class="cs-head" data-reveal>
+        <p class="cs-num">04. Leading through direction, not execution</p>
+        <h2 id="s4">Giving the team clear criteria and autonomy</h2>
+      </header>
+      <div class="cs-copy" data-reveal>
+        <p>My role was to guide the process, challenge the solutions and help the team make better decisions. I set clear criteria: mobile first, only the essential information, as few interactions as possible, and a clickable prototype with a fictional merchant so stakeholders could try the solution and give feedback in a realistic setting.</p>
+        <p>The aim was to keep the quality bar high while giving the designer the autonomy to explore and develop the solution.</p>
+      </div>
+    </div>
+    <figure class="cs-media playable" data-reveal>
+      <button class="play-btn" type="button" aria-label="Pause animation">
+        <svg class="i-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="10" y1="15" x2="10" y2="9"/><line x1="14" y1="15" x2="14" y2="9"/></svg>
+        <svg class="i-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+      </button>
+      <video src="img/checkout/prototype.mp4?v=4" poster="img/checkout/prototype-poster.jpg?v=2" width="1328" height="1000" autoplay muted loop playsinline preload="metadata" aria-label="Clickable prototype with a fictional merchant, CornerBet: the shopper taps Deposit, enters 150,000 COP, chooses credit card, fills in the card details and pays"></video>
+    </figure>
+  </section>
+
+  <!-- 05 -->
+  <section class="wrap cs cs-split flip" aria-labelledby="s5">
+    <div class="cs-text">
+      <header class="cs-head" data-reveal>
+        <p class="cs-num">05. Designing to scale</p>
+        <h2 id="s5">One shared experience. Many ways to pay</h2>
+      </header>
+      <div class="cs-copy" data-reveal>
+        <p>We designed a market-agnostic solution that adapts to different payment methods, integrations and merchants. We defined reusable patterns for selection, forms, QR codes, vouchers, redirects and transaction states.</p>
+        <p>To get there, we built on our design system, created from scratch by my product designer, who proposed connecting design and code with AI to speed up development.</p>
+        <p>My role was to champion the design system as a strategic project, make its value visible and drive its adoption across all the company’s products.</p>
+        <p>The result is a more consistent experience, faster frontend development and plenty of room for each brand to make it its own, which adds value for Engineering and for the business.</p>
+      </div>
+    </div>
+    <figure class="cs-media playable" data-reveal>
+      <button class="play-btn" type="button" aria-label="Pause animation">
+        <svg class="i-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="10" y1="15" x2="10" y2="9"/><line x1="14" y1="15" x2="14" y2="9"/></svg>
+        <svg class="i-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+      </button>
+      <video src="img/checkout/themes.mp4?v=3" poster="img/checkout/themes-poster.jpg?v=3" width="1328" height="1000" autoplay muted loop playsinline preload="metadata" aria-label="The same checkout in three merchant themes: the default navy, Monochrome and Plum and Lime. Each card flips over to the next theme, starting with the one in the centre."></video>
+    </figure>
+  </section>
+
+  <!-- 06 -->
+  <section class="wrap cs cs-split" aria-labelledby="s6">
+    <div class="cs-text">
+      <header class="cs-head" data-reveal>
+        <p class="cs-num">06. Measure, learn, evolve</p>
+        <h2 id="s6">Design doesn’t end at handover</h2>
+      </header>
+      <div class="cs-copy" data-reveal>
+        <p>From design, we worked with Analytics and Engineering to define which behaviours we wanted to measure and how to judge the new experience.</p>
+        <p>We proposed the events and interactions to track in FullStory, and worked with Engineering on implementing them, to find opportunities to improve and support the gradual rollout of the checkout across markets.</p>
+        <p>This lets us keep evolving the product from real data and tie design decisions to business goals.</p>
+      </div>
+    </div>
+    <figure class="cs-media" data-reveal>
+      <div class="cs-placeholder"><span>Image: simplified tracking diagram or conversion funnel</span></div>
+    </figure>
+  </section>
+
+  <!-- AI -->
+  <section class="wrap cs cs-split flip" aria-labelledby="s7">
+    <div class="cs-text">
+      <header class="cs-head" data-reveal>
+        <h2 id="s7">Scaling continuous improvement with AI</h2>
+      </header>
+      <div class="cs-copy" data-reveal>
+        <p>As the checkout rolled out to more markets, a new challenge appeared: finding and handling problems in a more efficient, scalable way.</p>
+        <p>I saw the need to analyse several sources (videos of complete payment journeys, thousands of FullStory sessions and support tickets) to spot issues and opportunities to improve.</p>
+        <p>From there, I asked my product designer to design an AI-assisted workflow that would:</p>
+        <ul class="cs-list">
+          <li>Rebuild payment flows from the videos.</li>
+          <li>Detect, review and classify possible issues.</li>
+          <li>Identify who owns each issue.</li>
+          <li>Create Jira tickets for internal problems and reports for merchants.</li>
+          <li>Track issues and their impact on conversion.</li>
+        </ul>
+        <p>The goal is to turn large volumes of information into concrete actions, with less manual analysis and easier continuous improvement.</p>
+        <p>Beyond automating tasks, it’s about using AI to extend our ability to find problems, make decisions and improve the payment experience.</p>
+      </div>
+    </div>
+    <figure class="cs-media" data-reveal>
+      <div class="cs-placeholder"><span>Diagram: the AI workflow, from sessions to tickets and merchant reports</span></div>
+    </figure>
+  </section>
+
+  <section class="wrap cs" aria-label="Closing">
+    <div class="cs-close" data-reveal>
+      <p>This project reflects how I lead design: bringing clarity to complex problems, growing the team’s autonomy and tying design decisions to business goals.</p>
+      <p>I believe the value of design lies not only in the experiences we create, but also in the teams, systems and processes we build to keep improving them.</p>
+    </div>
+  </section>
+
+  <nav class="wrap case-next" aria-label="More case studies">
+    <a class="pill outline" href="index.html#case-studies">All case studies</a>
+  </nav>
+
+</main>
+
+<footer class="wrap foot">
+  <span>© 2026 Ester Benedit</span>
+  <a class="draw" href="https://www.instagram.com/esterbenedit/" target="_blank" rel="noopener noreferrer"><svg class="heart" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg><span class="u">I also draw</span><svg class="ext" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
+</footer>
+
+<dialog class="lightbox" aria-label="Enlarged image">
+  <button class="lightbox-close" type="button" aria-label="Close"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  <img alt="">
+</dialog>
+
+<script src="main.js?v=24"></script>
+<script>
+  // The bar is transparent at the top, navy as soon as the page scrolls, and white once the hero has scrolled away.
+  (() => {
+    const bar = document.querySelector('.bar');
+    if (!bar) return;
+    let ticking = false;
+    const hero = document.querySelector('.case-hero');
+    const check = () => {
+      ticking = false;
+      bar.classList.toggle('is-solid', window.scrollY > 0);
+      bar.classList.toggle('is-light', !!hero && hero.getBoundingClientRect().bottom <= bar.offsetHeight);  // white once the hero has gone under it
+    };
+    window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(check); } }, { passive: true });
+    window.addEventListener('resize', check);
+    check();
+  })();
+
+  // Videos with a play button: hovering shows pause while it plays and play while it's paused; a click switches.
+  document.querySelectorAll('.playable').forEach((fig) => {
+    const v = fig.querySelector('video'), btn = fig.querySelector('.play-btn');
+    const sync = () => {
+      fig.classList.toggle('is-paused', v.paused);
+      btn.setAttribute('aria-label', v.paused ? 'Play animation' : 'Pause animation');
+    };
+    const toggle = () => { if (v.paused) v.play(); else v.pause(); };
+    btn.addEventListener('click', toggle);
+    v.addEventListener('click', toggle);
+    v.addEventListener('play', sync); v.addEventListener('pause', sync);
+    sync();
+  });
+
+  // Images with an expand button open full size in a lightbox; Esc, the close button or a click outside the image closes it.
+  (() => {
+    const box = document.querySelector('.lightbox');
+    if (!box) return;
+    const big = box.querySelector('img');
+    document.querySelectorAll('.zoomable').forEach((fig) => {
+      const img = fig.querySelector('img');
+      fig.querySelector('.zoom-btn').addEventListener('click', () => {
+        big.src = img.currentSrc || img.src;
+        big.alt = img.alt;
+        box.showModal();
+      });
+    });
+    box.addEventListener('click', (e) => { if (e.target !== big) box.close(); });
+  })();
+</script>
+</body>
+</html>
