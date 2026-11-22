@@ -85,6 +85,11 @@
 .case-body { padding-top: var(--section-gap); }
 .case-body > .cs + .cs { margin-top: var(--section-gap); }
 .cs-head { display: grid; gap: 1rem; margin-bottom: 1rem; }  /* more room between section title and subtitle (Ester) */
+/* 01 subtitle always on one line on desktop (Ester): its column grows to fit it when the screen is narrow */
+@media (min-width: 1001px) {
+  #s1 { white-space: nowrap; }
+  .cs-split:has(#s1) { grid-template-columns: minmax(min-content, 1fr) minmax(0, 1fr); }
+}
 .cs-num { font-family: var(--font-display); font-weight: var(--display-weight); font-size: clamp(1.375rem, 1.1rem + 1.1vw, 2rem); line-height: calc(1.1em + 2px); }  /* +2px (Ester) */
 .cs h2 { font-family: var(--font-text); font-weight: 700; font-size: var(--cs-text); line-height: 1.7; letter-spacing: 0; }  /* subtitles: Inter Bold at the text size, Ester's request */
 .cs-head:not(:has(.cs-num)) h2 { font-family: var(--font-display); font-weight: var(--display-weight); font-size: clamp(1.375rem, 1.1rem + 1.1vw, 2rem); line-height: calc(1.1em + 2px); }
@@ -102,7 +107,7 @@
 .cs-media video { display: block; width: 100%; height: auto; }
 
 /* 01: the three figures, big in Mattone Black with Mattone labels, centred in the second column (Ester's Figma) */
-.cs-stats { display: grid; grid-template-columns: auto auto auto; justify-content: center; gap: clamp(1.5rem, 4.5vw, 4rem); align-self: center; }
+.cs-stats { display: grid; grid-template-columns: auto auto auto; justify-content: center; gap: clamp(2rem, 6vw, 5.25rem); align-self: center; }
 .cs-stats li { display: grid; align-content: start; gap: 0.75rem; }
 .cs-stats b { font-family: var(--font-display); font-weight: 900; font-size: clamp(3rem, 1.4rem + 5vw, 6.25rem); line-height: 0.85; letter-spacing: -0.02em; }
 .cs-stats span { font-family: var(--font-display); font-weight: 400; font-size: clamp(0.75rem, 0.69rem + 0.25vw, 0.9375rem); line-height: 1.25; max-width: 14rem; }
