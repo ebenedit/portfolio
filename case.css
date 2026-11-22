@@ -1,3 +1,4 @@
+:root { --cs-text: clamp(0.875rem, 0.85rem + 0.1vw, 0.9375rem); }  /* case paragraphs: one point above --step-small (14-15px), Ester */
 /* Case study pages, from Ester's Checkout draft (Figma, Nov 2026).
    Each case has its own colour (--case), set on <body>: the bar and the hero take it.
    Below the hero: numbered sections, text beside one image, alternating sides. */
@@ -54,7 +55,7 @@
 }
 .case-hero h1 .ln { display: block; }
 @media (min-width: 701px) { .case-hero h1 .ln { white-space: nowrap; } }  /* two lines, the second runs past the column as in the Figma; phones let it wrap */
-.case-hero p { color: rgb(243 243 241 / 0.85); max-width: 30rem; font-size: var(--step-small); line-height: 1.7; }
+.case-hero p { color: rgb(243 243 241 / 0.85); max-width: 30rem; font-size: var(--cs-text); line-height: 1.7; }
 /* Two real screens: the checkout sits on the hero's bottom edge, Payment successful beside it, a little lower than its top */
 .case-hero-shots { position: relative; align-self: center; justify-self: end; width: min(80%, calc((var(--hero-h) - 7rem) * 562 / 692), 35rem); aspect-ratio: 562 / 692; }  /* centred vertically, with room above and below; 80% of the column at most */
 .case-hero-shots img { position: absolute; height: auto; }
@@ -85,9 +86,9 @@
 .case-body > .cs + .cs { margin-top: var(--section-gap); }
 .cs-head { display: grid; gap: 1rem; margin-bottom: 1rem; }  /* more room between section title and subtitle (Ester) */
 .cs-num { font-family: var(--font-display); font-weight: var(--display-weight); font-size: clamp(1.375rem, 1.1rem + 1.1vw, 2rem); line-height: calc(1.1em + 2px); }  /* +2px (Ester) */
-.cs h2 { font-family: var(--font-text); font-weight: 700; font-size: var(--step-small); line-height: 1.7; letter-spacing: 0; }  /* subtitles: Inter Bold at the text size, Ester's request */
+.cs h2 { font-family: var(--font-text); font-weight: 700; font-size: var(--cs-text); line-height: 1.7; letter-spacing: 0; }  /* subtitles: Inter Bold at the text size, Ester's request */
 .cs-head:not(:has(.cs-num)) h2 { font-family: var(--font-display); font-weight: var(--display-weight); font-size: clamp(1.375rem, 1.1rem + 1.1vw, 2rem); line-height: calc(1.1em + 2px); }
-.cs-copy { display: grid; gap: 1em; max-width: 46rem; font-size: var(--step-small); line-height: 1.7; }  /* as small as the hero paragraph, Ester's request */
+.cs-copy { display: grid; gap: 1em; max-width: 46rem; font-size: var(--cs-text); line-height: 1.7; }  /* as small as the hero paragraph, Ester's request */
 .cs-copy.cs-wide { max-width: min(46rem, calc((100% - var(--col-gap)) / 2)); }  /* same width as the text column of the split sections */
 .cs-list { display: grid; gap: 0.4em; padding-left: 1.2em; list-style: disc; }
 .cs-copy b { font-weight: 600; }  /* bold in running text and lists, same weight */
