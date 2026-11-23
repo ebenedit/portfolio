@@ -76,7 +76,7 @@
     <ul class="cs-stats" data-reveal>
       <li><b>1</b><span>Checkout</span></li>
       <li><b>7</b><span>Markets</span></li>
-      <li><b>20+</b><span>Payment methods in some markets</span></li>
+      <li><b>20+</b><span>Payment methods in specific markets</span></li>
     </ul>
   </section>
 
@@ -277,6 +277,30 @@
       });
     });
     box.addEventListener('click', (e) => { if (e.target !== big) box.close(); });
+  })();
+  // The figures in 01 count up from zero, quickly, the first time they come into view. Off for reduced motion.
+  (() => {
+    const nums = [...document.querySelectorAll('.cs-stats b')];
+    if (!nums.length || !('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const run = (b) => {
+      const m = b.textContent.match(/^(\d+)(.*)$/);
+      if (!m) return;
+      const end = +m[1], suffix = m[2], dur = 700, t0 = performance.now();
+      b.style.minWidth = b.getBoundingClientRect().width + 'px';  // keeps the columns still while the digits change
+      const step = (t) => {
+        const k = Math.min(1, (t - t0) / dur), eased = 1 - Math.pow(1 - k, 3);
+        b.textContent = Math.round(end * eased) + suffix;
+        if (k < 1) requestAnimationFrame(step);
+      };
+      b.textContent = '0' + suffix;
+      requestAnimationFrame(step);
+    };
+    const io = new IntersectionObserver((entries) => {
+      if (!entries.some((e) => e.isIntersecting)) return;
+      io.disconnect();
+      nums.forEach(run);
+    }, { threshold: 0.4 });
+    io.observe(nums[0].closest('.cs-stats'));
   })();
 </script>
 </body>
