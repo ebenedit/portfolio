@@ -74,7 +74,7 @@
 @media (prefers-reduced-motion: reduce) { .js .case-hero-shots img { animation: none; } }
 
 /* Fact sheet band */
-.case-facts-band { background: #e5e8f3; padding-block: clamp(2rem, 4vw, 3.5rem); }
+.case-facts-band { background: #eef1ff; padding-block: clamp(2rem, 4vw, 3.5rem); }
 .case-facts { margin: 0; display: grid; gap: 0.45rem; font-size: var(--step-small); line-height: 1.5; }
 .case-facts div { display: block; }
 .case-facts dt, .case-facts dd { display: inline; margin: 0; }
@@ -203,3 +203,70 @@
 .play-btn:focus-visible { outline: 2px solid #fff; outline-offset: 2px; border-radius: 0.75rem; }
 @media (hover: none) { .playable.is-paused .play-btn { opacity: 0.85; } }  /* on touch, the play icon stays while paused */
 @media (prefers-reduced-motion: reduce) { .play-btn { transition: none; } }
+
+/* Hero image still to come (Wallet draft): a marked gap with the same shape as the screens group */
+.case-hero-shots.is-placeholder {
+  display: grid; place-items: start center; padding: 18% 2rem 0; text-align: center;
+  border: 1px dashed rgb(243 243 241 / 0.35); border-radius: var(--radius);
+  font-size: var(--step-small); color: rgb(243 243 241 / 0.7);
+}
+.case-hero-shots.is-placeholder span { max-width: 16rem; }
+
+/* Wallet hero (Ester's Figma "responsive": 1600, 1238 and 650 frames). Purple with two soft glows; three screens
+   anchored to the right edge, the third one running off it; a purple fade over their lower part, and the text on top.
+   --u is one Figma pixel of the current frame, so every size follows her frames. */
+.wallet-hero {
+  --u: min(100vw / 1600, 1px);
+  display: block; min-height: 0; padding-block: 0; position: relative; container-type: normal;
+  background:
+    radial-gradient(circle calc(478.5 * var(--u)) at var(--glow-x) calc(205 * var(--u)), #8c5cff, rgb(140 92 255 / 0)),  /* Ester's two colours only: #8C5CFF to the base #692AFF */
+    radial-gradient(circle calc(364.5 * var(--u)) at calc(30 * var(--u)) calc(451 * var(--u)), #8c5cff, rgb(140 92 255 / 0)),
+    var(--case);
+  background-repeat: no-repeat; background-origin: border-box;
+  --fade-top: 474; --fade-h: 362; --text-top: 474; --fade-from: 0.1275; --fade-to: 1;
+  --glow-x: calc(100% - 217 * var(--u));  /* the big glow stays behind the screens, which are anchored right */
+  min-height: calc(836 * var(--u));
+}
+.wallet-hero::after {  /* Figma Rectangle 915: transparent to purple, over the bottom of the screens */
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; z-index: 0; pointer-events: none;
+  top: calc(var(--fade-top) * var(--u) - 70px);
+  background: linear-gradient(to bottom, rgb(105 42 255 / 0) calc(var(--fade-h) * var(--fade-from) * var(--u)), var(--case) calc(var(--fade-h) * var(--fade-to) * var(--u)));
+}
+.wallet-shots { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.wallet-shots img { position: absolute; height: auto; }
+.wallet-shots .ws-home   { right: calc(421 * var(--u)); top: calc(146 * var(--u) - 70px); width: calc(283 * var(--u)); border-radius: calc(30 * var(--u)); }
+.wallet-shots .ws-signup { right: calc(149 * var(--u)); top: calc(206 * var(--u) - 70px); width: calc(235 * var(--u)); border-radius: calc(30 * var(--u)); }
+.wallet-shots .ws-code   { right: calc(-122 * var(--u)); top: calc(206 * var(--u) - 70px); width: calc(234 * var(--u)); border-radius: calc(30 * var(--u)); }
+.wallet-hero .case-hero-text {
+  position: relative; z-index: 1; margin: 0; background: none; align-self: auto;
+  padding: calc(var(--text-top) * var(--u) - 70px) 0 clamp(2.5rem, 5vw, 4.5rem);
+}
+.js .wallet-shots img { animation: shot-in 1600ms var(--ease-expo) both; }
+.js .wallet-shots .ws-home { animation-delay: 200ms; }
+.js .wallet-shots .ws-signup { animation-delay: 700ms; }
+.js .wallet-shots .ws-code { animation-delay: 1200ms; }
+@media (prefers-reduced-motion: reduce) { .js .wallet-shots img { animation: none; } }
+/* Tablet frame, 1238 wide: the screens move left and the title runs over them */
+@media (max-width: 1300px) {
+  .wallet-hero { --u: calc(100vw / 1238); --fade-top: 294; --fade-h: 542; --glow-x: calc(1383 * var(--u)); padding-top: 0; padding-bottom: 0; }
+  .wallet-shots .ws-home   { right: calc(386 * var(--u)); top: calc(157 * var(--u) - 70px); width: calc(260 * var(--u)); border-radius: calc(28 * var(--u)); }
+  .wallet-shots .ws-signup { right: calc(135 * var(--u)); top: calc(212 * var(--u) - 70px); width: calc(216 * var(--u)); border-radius: calc(28 * var(--u)); }
+  .wallet-shots .ws-code   { right: calc(-115 * var(--u)); top: calc(212 * var(--u) - 70px); width: calc(216 * var(--u)); border-radius: calc(28 * var(--u)); }
+}
+/* Phone frame, 650 wide */
+@media (max-width: 700px) {
+  .wallet-hero { --u: calc(100vw / 650); --fade-top: 241; --fade-h: 595; --text-top: 457; --fade-from: 0.0639; --fade-to: 0.6355; }  /* Ester's updated phone frame */
+  .wallet-shots .ws-home   { right: calc(327 * var(--u)); top: calc(141 * var(--u) - 70px); width: calc(217 * var(--u)); border-radius: calc(24 * var(--u)); }
+  .wallet-shots .ws-signup { right: calc(118 * var(--u)); top: calc(187 * var(--u) - 70px); width: calc(180 * var(--u)); border-radius: calc(24 * var(--u)); }
+  .wallet-shots .ws-code   { right: calc(-91 * var(--u)); top: calc(187 * var(--u) - 70px); width: calc(180 * var(--u)); border-radius: calc(24 * var(--u)); }
+}
+
+/* Teaser of a case still in progress (published Wallet: <body class="case is-teaser">): the page shows the hero, the
+   facts and the start of 01, then fades to white with a grey "Coming soon". The local draft has no is-teaser class. */
+.is-teaser .case-body { position: relative; max-height: clamp(26rem, 22rem + 12vw, 34rem); overflow: hidden; }
+.is-teaser .case-body::after {
+  content: "Coming soon"; position: absolute; inset: 0; z-index: 2;
+  display: flex; align-items: flex-end; justify-content: center; padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  background: linear-gradient(to bottom, rgb(255 255 255 / 0) 15%, #fff 75%);
+  font-family: var(--font-display); font-weight: 400; font-size: clamp(1.25rem, 1rem + 1vw, 2rem); color: var(--muted);
+}
