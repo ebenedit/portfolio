@@ -232,11 +232,12 @@
   top: calc(var(--fade-top) * var(--u) - 70px);
   background: linear-gradient(to bottom, rgb(105 42 255 / 0) calc(var(--fade-h) * var(--fade-from) * var(--u)), var(--case) calc(var(--fade-h) * var(--fade-to) * var(--u)));
 }
-.wallet-shots { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.wallet-shots { --ws-shift: 50;  /* the screens sit 50 Figma px further left than in the frames, so more of the third one shows (Ester) */
+  position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
 .wallet-shots img { position: absolute; height: auto; }
-.wallet-shots .ws-home   { right: calc(421 * var(--u)); top: calc(146 * var(--u) - 70px); width: calc(283 * var(--u)); border-radius: calc(30 * var(--u)); }
-.wallet-shots .ws-signup { right: calc(149 * var(--u)); top: calc(206 * var(--u) - 70px); width: calc(235 * var(--u)); border-radius: calc(30 * var(--u)); }
-.wallet-shots .ws-code   { right: calc(-122 * var(--u)); top: calc(206 * var(--u) - 70px); width: calc(234 * var(--u)); border-radius: calc(30 * var(--u)); }
+.wallet-shots .ws-home   { right: calc((421 + var(--ws-shift)) * var(--u)); top: calc(146 * var(--u) - 70px); width: calc(283 * var(--u)); border-radius: calc(30 * var(--u)); }
+.wallet-shots .ws-signup { right: calc((149 + var(--ws-shift)) * var(--u)); top: calc(206 * var(--u) - 70px); width: calc(235 * var(--u)); border-radius: calc(30 * var(--u)); }
+.wallet-shots .ws-code   { right: calc((-122 + var(--ws-shift)) * var(--u)); top: calc(206 * var(--u) - 70px); width: calc(234 * var(--u)); border-radius: calc(30 * var(--u)); }
 .wallet-hero .case-hero-text {
   position: relative; z-index: 1; margin: 0; background: none; align-self: auto;
   padding: calc(var(--text-top) * var(--u) - 70px) 0 clamp(2.5rem, 5vw, 4.5rem);
@@ -249,16 +250,16 @@
 /* Tablet frame, 1238 wide: the screens move left and the title runs over them */
 @media (max-width: 1300px) {
   .wallet-hero { --u: calc(100vw / 1238); --fade-top: 294; --fade-h: 542; --glow-x: calc(1383 * var(--u)); padding-top: 0; padding-bottom: 0; }
-  .wallet-shots .ws-home   { right: calc(386 * var(--u)); top: calc(157 * var(--u) - 70px); width: calc(260 * var(--u)); border-radius: calc(28 * var(--u)); }
-  .wallet-shots .ws-signup { right: calc(135 * var(--u)); top: calc(212 * var(--u) - 70px); width: calc(216 * var(--u)); border-radius: calc(28 * var(--u)); }
-  .wallet-shots .ws-code   { right: calc(-115 * var(--u)); top: calc(212 * var(--u) - 70px); width: calc(216 * var(--u)); border-radius: calc(28 * var(--u)); }
+  .wallet-shots .ws-home   { right: calc((386 + var(--ws-shift)) * var(--u)); top: calc(157 * var(--u) - 70px); width: calc(260 * var(--u)); border-radius: calc(28 * var(--u)); }
+  .wallet-shots .ws-signup { right: calc((135 + var(--ws-shift)) * var(--u)); top: calc(212 * var(--u) - 70px); width: calc(216 * var(--u)); border-radius: calc(28 * var(--u)); }
+  .wallet-shots .ws-code   { right: calc((-115 + var(--ws-shift)) * var(--u)); top: calc(212 * var(--u) - 70px); width: calc(216 * var(--u)); border-radius: calc(28 * var(--u)); }
 }
 /* Phone frame, 650 wide */
 @media (max-width: 700px) {
   .wallet-hero { --u: calc(100vw / 650); --fade-top: 241; --fade-h: 595; --text-top: 457; --fade-from: 0.0639; --fade-to: 0.6355; }  /* Ester's updated phone frame */
-  .wallet-shots .ws-home   { right: calc(327 * var(--u)); top: calc(141 * var(--u) - 70px); width: calc(217 * var(--u)); border-radius: calc(24 * var(--u)); }
-  .wallet-shots .ws-signup { right: calc(118 * var(--u)); top: calc(187 * var(--u) - 70px); width: calc(180 * var(--u)); border-radius: calc(24 * var(--u)); }
-  .wallet-shots .ws-code   { right: calc(-91 * var(--u)); top: calc(187 * var(--u) - 70px); width: calc(180 * var(--u)); border-radius: calc(24 * var(--u)); }
+  .wallet-shots .ws-home   { right: calc((327 + var(--ws-shift)) * var(--u)); top: calc(141 * var(--u) - 70px); width: calc(217 * var(--u)); border-radius: calc(24 * var(--u)); }
+  .wallet-shots .ws-signup { right: calc((118 + var(--ws-shift)) * var(--u)); top: calc(187 * var(--u) - 70px); width: calc(180 * var(--u)); border-radius: calc(24 * var(--u)); }
+  .wallet-shots .ws-code   { right: calc((-91 + var(--ws-shift)) * var(--u)); top: calc(187 * var(--u) - 70px); width: calc(180 * var(--u)); border-radius: calc(24 * var(--u)); }
 }
 
 /* Teaser of a case still in progress (published Wallet: <body class="case is-teaser">): the page shows the hero, the
